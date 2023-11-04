@@ -3,8 +3,6 @@ class Nokogiri::WebsiteScraper
     uri = URI(link)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
-    http.open_timeout = 240
-    http.read_timeout = 240
 
     request = Net::HTTP::Get.new(uri)
     response = http.request(request)
