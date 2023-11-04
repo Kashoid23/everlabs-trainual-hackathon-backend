@@ -1,6 +1,8 @@
 class V1::AudiosController < ApplicationController
   def index
-    render json: Audio.where(folder_id: folder_id_param)
+    return render json: Audio.all if folder_id == "all"
+
+    render json: Audio.where(folder_id: folder_id)
   end
 
   def create
@@ -74,8 +76,8 @@ class V1::AudiosController < ApplicationController
     ]
   end
 
-  def folder_id_param
-    params[:folder_id] || Folder.first.id
+  def folder_id
+    params[:folder_id] || "all"
   end
 
   def link
