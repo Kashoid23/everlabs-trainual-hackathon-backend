@@ -22,7 +22,7 @@ class V1::AudiosController < ApplicationController
 
       return render json: result.error unless result.success?
 
-      GoogleCloud::Storage.upload_file(filename:, content: result.audio_content)
+      GoogleCloud::Storage.upload_file(filename: "#{filename}.mp3", content: result.audio_content)
 
       audio = Audio.new(
         folder_id: params[:folder_id],
