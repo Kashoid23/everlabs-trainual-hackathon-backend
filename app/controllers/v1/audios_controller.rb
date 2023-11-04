@@ -20,7 +20,7 @@ class V1::AudiosController < ApplicationController
     if choices
       result = GoogleCloud::TextToSpeech.new(content: choices.dig(0, "message", "content"))
 
-      return render json: { error: result.error } unless result.success?
+      return render json: result.error unless result.success?
 
       GoogleCloud::Storage.upload_file(filename:, content: result.audio_content)
 
