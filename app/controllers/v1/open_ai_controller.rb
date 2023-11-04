@@ -1,6 +1,6 @@
 class V1::OpenAiController < ApplicationController
   def show
-    return render json: { error: "No link provided" }, status: :unprocessable_entity unless link
+    return render json: "No link provided", status: :unprocessable_entity unless link
 
     sanitized_content = Nokogiri::WebsiteScraper.parse(link:)
 
