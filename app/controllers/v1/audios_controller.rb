@@ -1,8 +1,8 @@
 class V1::AudiosController < ApplicationController
   def index
-    return render json: Audio.all if folder_id == "all"
+    return render json: Audio.all.to_json(include: :folder) if folder_id == "all"
 
-    render json: Audio.where(folder_id: folder_id)
+    render json: Audio.where(folder_id: folder_id).to_json(include: :folder)
   end
 
   def create
