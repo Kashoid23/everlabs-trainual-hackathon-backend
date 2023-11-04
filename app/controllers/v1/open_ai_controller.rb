@@ -9,7 +9,7 @@ class V1::OpenAiController < ApplicationController
     # gpt-4 - $0.03 / 1K tokens	$0.06 / 1K tokens
     response = client.chat(
       parameters: {
-        model: "gpt-3.5-turbo-16k",
+        model: "gpt-4",
         messages: messages(sanitized_content),
         temperature: 0.5
       }
