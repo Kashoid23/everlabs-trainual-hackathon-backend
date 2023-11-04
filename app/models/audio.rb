@@ -1,4 +1,5 @@
 class Audio < ApplicationRecord
   validates :title, presence: true
-  validates :folder, presence: true
+
+  belongs_to :folder
 end
