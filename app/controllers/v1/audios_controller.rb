@@ -24,7 +24,12 @@ class V1::AudiosController < ApplicationController
 
       GoogleCloud::Storage.upload_file(filename:, content: result.audio_content)
 
-      audio = Audio.new(folder_id: params[:folder_id], title: filename.humanize, link: link, src: "https://storage.googleapis.com/hackaton-trainual/#{filename}.mp3")
+      audio = Audio.new(
+        folder_id: params[:folder_id],
+        title: filename.humanize,
+        link: link,
+        src: "https://storage.googleapis.com/hackaton-trainual/#{filename}.mp3"
+      )
 
       if audio.save
         render json: audio, status: :ok
@@ -48,8 +53,7 @@ class V1::AudiosController < ApplicationController
         "role": "system",
         content: [
           'You are a helpful AI writing assistant',
-          'Analyze the provided website content and provide a short text summary - 200 words maximum',
-          'This should sound like an introduction to the article'
+          'Analyze the provided website content and provide a text summary - 200 words maximum'
         ].join('. ')
       },
       {
