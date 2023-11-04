@@ -280,6 +280,7 @@ DEPENDENCIES
   dotenv-rails
   google-cloud-storage
   google-cloud-text_to_speech
+  grpc (~> 1.59.0)
   nokogiri
   pg (~> 1.1)
   puma (~> 5.0)
