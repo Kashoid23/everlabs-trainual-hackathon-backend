@@ -31,6 +31,9 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem "ruby-openai"
+gem 'dotenv-rails'
+gem "nokogiri"
+gem "sanitize"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
