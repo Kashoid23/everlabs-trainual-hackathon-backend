@@ -17,9 +17,9 @@ class V1::OpenAiController < ApplicationController
     choices = response.dig("choices")
 
     if choices
-      render json: { data: choices.dig(0, "message", "content") }, status: :ok
+      render json: choices.dig(0, "message", "content"), status: :ok
     else
-      render json: { error: response.dig("error", "message") }, status: :unprocessable_entity unless choices
+      render json: response.dig("error", "message"), status: :unprocessable_entity unless choices
     end
   end
 
