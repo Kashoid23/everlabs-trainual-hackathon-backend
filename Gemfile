@@ -34,7 +34,7 @@ gem "ruby-openai"
 gem 'dotenv-rails'
 gem "nokogiri"
 gem "sanitize"
-gem "grpc", "~> 1.59.0"
+gem "grpc", '1.59.0'
 gem "google-cloud-text_to_speech"
 gem "google-cloud-storage"
 
