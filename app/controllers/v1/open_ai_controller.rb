@@ -31,7 +31,7 @@ class V1::OpenAiController < ApplicationController
         "role": "system",
         content: [
           'You are a helpful AI writing assistant',
-          'Analyze the provided website content and provide a short text summary - 300 words maximum',
+          'Analyze the provided website content and provide a short text summary - 100 words maximum',
           'This should sound like an introduction to the article'
         ].join('. ')
       },

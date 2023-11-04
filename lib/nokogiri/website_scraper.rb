@@ -12,7 +12,7 @@ class Nokogiri::WebsiteScraper
     if response.is_a?(Net::HTTPSuccess)
       document = Nokogiri::HTML(response.body)
 
-      Sanitize.fragment(document, elements: %w[h1 h2 h3 h4 h5], remove_contents: %w[script style]).delete!("\n").squeeze(' ')
+      Sanitize.fragment(document, elements: [], remove_contents: %w[script style]).delete!("\n").squeeze(' ')
     end
   end
 end
