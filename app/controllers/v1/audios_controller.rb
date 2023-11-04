@@ -24,7 +24,7 @@ class V1::AudiosController < ApplicationController
 
       GoogleCloud::Storage.upload_file(filename:, content: result.audio_content)
 
-      audio = Audio.new(folder_id: params[:folder_id], title: filename.titleize, link: link, src: "https://storage.googleapis.com/hackaton-trainual/#{filename}")
+      audio = Audio.new(folder_id: params[:folder_id], title: filename.humanize, link: link, src: "https://storage.googleapis.com/hackaton-trainual/#{filename}.mp3")
 
       if audio.save
         render json: audio, status: :ok
@@ -70,7 +70,7 @@ class V1::AudiosController < ApplicationController
   def filename
     url_object = URI.parse(link)
     url_path = url_object.path
-    "#{url_path.split("/").last}.mp3"
+    "#{url_path.split("/").last}"
   end
 
   def link
