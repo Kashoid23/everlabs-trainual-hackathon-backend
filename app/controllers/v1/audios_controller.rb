@@ -3,7 +3,7 @@ class V1::AudiosController < ApplicationController
     render json: Audio.where(folder_id: folder_id_param)
   end
 
-  def show
+  def create
     return render json: "No link provided", status: :unprocessable_entity unless link
 
     sanitized_content = Nokogiri::WebsiteScraper.parse(link:)
