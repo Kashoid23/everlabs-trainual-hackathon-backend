@@ -18,12 +18,10 @@ class V1::StepsController < ApplicationController
   }
 
   def show
-    return render json: "No content provided", status: :unprocessable_entity unless content_params
-
     response = client.chat(
       parameters: {
         model: ENV.fetch("OPENAI_MODEL"),
-        messages: messages(content_params.first(4000), language_short_name_params),
+        messages: messages(Step.first.content, language_short_name_params),
         temperature: 0.2
       }
     )
@@ -73,10 +71,6 @@ class V1::StepsController < ApplicationController
         "content": content
       }
     ]
-  end
-
-  def content_params
-    params.dig(:content)
   end
 
   def language_short_name_params
