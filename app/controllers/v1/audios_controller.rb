@@ -13,7 +13,7 @@ class V1::AudiosController < ApplicationController
     response = client.chat(
       parameters: {
         model: ENV.fetch("OPENAI_MODEL"),
-        messages: messages(sanitized_content.first(4000)),
+        messages: messages(sanitized_content),
         temperature: 0.5
       }
     )
