@@ -1,6 +1,6 @@
 class V1::FoldersController < ApplicationController
   def index
-    render json: Folder.all
+    render json: Folder.joins(:audios).group("folders.id").select("folders.*, count(audios.id) as audios_count")
   end
 
   def create
