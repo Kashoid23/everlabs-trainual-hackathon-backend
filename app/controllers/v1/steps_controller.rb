@@ -18,6 +18,7 @@ class V1::StepsController < ApplicationController
   }
 
   def show
+    # In real project we will have Step content from database
     response = client.chat(
       parameters: {
         model: ENV.fetch("OPENAI_MODEL"),
