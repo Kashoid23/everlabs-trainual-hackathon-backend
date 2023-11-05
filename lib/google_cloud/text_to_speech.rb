@@ -2,16 +2,16 @@ class GoogleCloud::TextToSpeech
   attr_reader :error
   attr_reader :audio_content
 
-  def initialize(content:)
+  def initialize(content:, name: 'en-US-Standard-B', language_code: 'en-US')
     @error  = nil
     @audio_content = nil
-    @success = convert(content:)
+    @success = convert(content:, name:, language_code:)
   end
 
-  def convert(content:)
+  def convert(content:, name:, language_code:)
     response = client.synthesize_speech(
       input: { text: content },
-      voice: { name: 'en-US-Studio-M', language_code: 'en-US' },
+      voice: { name:, language_code: },
       audio_config: { audio_encoding: 'MP3' }
     )
 
