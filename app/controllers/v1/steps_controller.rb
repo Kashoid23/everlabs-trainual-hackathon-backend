@@ -43,7 +43,7 @@ class V1::StepsController < ApplicationController
 
       GoogleCloud::Storage.upload_file(filename: "#{filename}.mp3", content: result.audio_content)
 
-      render json: "https://storage.googleapis.com/hackaton-trainual/#{filename}.mp3", status: :ok
+      render json: { src: "https://storage.googleapis.com/hackaton-trainual/#{filename}.mp3" }, status: :ok
     else
       render json: response.dig("error", "message"), status: :unprocessable_entity unless choices
     end
