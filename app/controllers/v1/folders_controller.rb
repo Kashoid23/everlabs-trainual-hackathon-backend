@@ -4,18 +4,12 @@ class V1::FoldersController < ApplicationController
   end
 
   def create
-    folder = Folder.new(folder_params)
+    folder = Folder.new(name: params[:name])
 
     if folder.save
       render json: folder
     else
       render json: folder.errors
     end
-  end
-
-  private
-
-  def folder_params
-    params.require(:folder).permit(:name)
   end
 end
