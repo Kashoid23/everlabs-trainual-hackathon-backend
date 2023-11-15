@@ -6,7 +6,7 @@ class V1::StepsController < ApplicationController
       language_code: 'en-US'
     },
     "ua" => {
-      language: 'українська',
+      language: 'ukrainian',
       name: 'uk-UA-Standard-A',
       language_code: 'uk-UA'
     },
